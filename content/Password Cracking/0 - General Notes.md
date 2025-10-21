@@ -27,7 +27,7 @@ wordlists and cewl:
 https://www.youtube.com/watch?v=9Nn8d1VYBUM&t=1277s
 
 # hashcat:
-[hashcat hash types](https://hashcat.net/wiki/doku.php?id=example_hashes)]
+[hashcat hash types](https://hashcat.net/wiki/doku.php?id=example_hashes)
 https://hashcat.net/wiki/doku.php?id=example_hashes
 [hashcat attack types](https://hashcat.net/wiki/#core_attack_modes)
 
