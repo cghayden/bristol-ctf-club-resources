@@ -1,3 +1,28 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+@use "themes";
+// --- My Custom Cobalt Theme Fixes ---
+// 1. Set background for the EXPLORER sidebar container
+
+html {
+  background-color: #01213f;
+}
+
+body .page > #quartz-body .sidebar.left:has(.explorer) {
+  background-color: #0d2e4d;
+}
+
+// 2. Set background for the INNER content area to be transparent
+body .explorer .explorer-content {
+  background-color: #0d2e4d; // This tells it to use its parent's background
+}
+
+// 3. Set text/link color for the file names
+body .page > #quartz-body .sidebar.left:has(.explorer) a {
+  color: #e0e0e0;
+}
+
+body .page > #quartz-body .right.sidebar {
+  background-color: #0d2e4d;
+}

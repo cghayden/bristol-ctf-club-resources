@@ -28,14 +28,18 @@ https://www.youtube.com/watch?v=9Nn8d1VYBUM&t=1277s
 
 # hashcat:
 [hashcat hash types](https://hashcat.net/wiki/doku.php?id=example_hashes)
-https://hashcat.net/wiki/doku.php?id=example_hashes
+
 [hashcat attack types](https://hashcat.net/wiki/#core_attack_modes)
 
-general usage: 
-`hashcat  -a 0 -m 0 [file of hashes] [wordlist]
+find all previously cracked passwords here: 
+~/.local/share/hashcat/hashcat.potfile
 
+general usage: 
+`hashcat  -a 0 -m 0 [file of hashes] [wordlist] -o cracks.txt
+where:
 -a = attack mode
--m hash style
+-m = hash style
+-o = file to save cracks to (If you omit -o, cracked results are only shown in the console, not saved.)
 
 -O - optimize kernel: no by default, may add speed but *limits password length to 15*
 -w -  workload, GPU utilization ( 1-4 ), default = 2, *okay to use 4*
@@ -43,6 +47,14 @@ general usage:
 -a = attack mode (0= wordlist attack mode)
 -m = the hash type ( number from hash type list). (md5 = 0)
 -g Number - generates N random rules on the fly and applies to wordlist
+ 
+
+`--session=movies`
+use session names to save and resume progress.
+When you start Hashcat with --session=movies, it stores session data (like progress, position, salts, etc.) in files named movies.* inside Hashcat’s session directory (often .hashcat/sessions/ or the working directory).
+
+If the job is interrupted, you can resume it later by running `--restore` :
+`--session=movies --restore`
 
 **MASK attack** - passwords that are in a specific format
 `hashcat  -a 3 -m 0 [file of hashes] 'SKY-KAIT-?d?d?d?d`
@@ -89,9 +101,6 @@ here are some examples:
 |{ / }|Rotate word left / right|InlaneFreight2020|nlaneFreight2020I / 0InlaneFreight202|
 |^X / $X|Prepend / Append character X|InlaneFreight2020 (^! / $! )|!InlaneFreight2020 / InlaneFreight2020!|
 |r|Reverse|InlaneFreight2020|0202thgierFenalnI|
-
-
-
 
 ## rejection rules 
 can be used to prevent the processing of such words.
