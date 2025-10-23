@@ -29,16 +29,21 @@ body .page > #quartz-body .right.sidebar {
 
 // 1. Change color for all links
 a {
-  color: #7678e8; // This is a light blue, change it to your link color
+  color: #7678e8 !important;
 }
 
 // 2. Change color for links when you hover over them (Good practice)
 a:hover {
-  color: #b4befe; // This is a lighter purple, change it to your hover color
+  color: #b4befe !important;
+  cursor: pointer !important;
 }
 
 // 3. Change color for bolded text
 strong,
 b {
-  color: #82f146; // This is a pink/red, change it to your bold color
+  color: #82f146 !important;
+}
+
+.page-listing {
+  display: hidden !important;
 }
