@@ -4,11 +4,11 @@ cssclasses:
 ---
 > Refer to these pages for helpful information regarding all things cybersecurity, tailored toward succeeding in CTF's
 > I will be actively adding and curating content.
-> you made need to hard refresh the site ( shift - ctrl/cmd R ) to ensure latest content
+> you may need to hard refresh the site ( shift - ctrl/cmd R ) to ensure latest content
 
-## For NCL specifically:
+## Quick Note For NCL specifically:
 
-the flag will always be in the form SKY-CCCC-nnnn, where N is capital letter, and n is a single digit.
+The flag will always be in the form SKY-CCCC-nnnn, where N is capital letter, and n is a single digit.
 
 this is helpful to remember when looking for patterns in code or hex...
 
@@ -34,8 +34,6 @@ strings binaryfile | grep -P 'SKY-[A-Z]{4}-\d{4}'
 tshark -r capture.pcapng -Y 'frame contains "SKY-"' -T fields -e frame.number -e frame.time -e data | sed -n '1,200p'
 
 tshark -r capture.pcapng -q -z follow,tcp,ascii,1 | rg 'SKY-[A-Z]{4}-\d{4}'
-
-
 
 
 
