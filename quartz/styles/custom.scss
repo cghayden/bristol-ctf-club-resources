@@ -23,6 +23,16 @@ body .page > #quartz-body .sidebar.left:has(.explorer) a {
   color: #e0e0e0;
 }
 
+// 4. Set folder title link color
+a.folder-title {
+  color: #adbd96 !important;
+}
+
+// 5. Remove bold from TOC links
+ul.toc-content a {
+  font-weight: normal;
+}
+
 body .page > #quartz-body .right.sidebar {
   background-color: #0d2e4d;
 }
