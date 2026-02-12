@@ -17,6 +17,7 @@ given:
 SKY-THIS-2468
 in decimal / charCode format:
 83 75 89 45 84 72 73 83 45 50 52 54 56
+look for **write of 0xd (13bytes) in disaasembly**
 
 in hex: 
 53 4B 59 2D 54 48 49 53 2D 32 34 36 38
