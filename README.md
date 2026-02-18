@@ -1,131 +1,251 @@
 # Bristol CTF Club Resources
 
-A collaborative knowledge base for CTF (Capture The Flag) cybersecurity competitions, built with [Quartz](https://quartz.jzhao.xyz/) and powered by Obsidian.
+A collaborative knowledge base for Bristol Cybersecurity Club CTF success built with [Quartz](https://quartz.jzhao.xyz/) from content authored in [Obsidian](https://obsidian.md/)
 
 **Live site:** [bristolctf.club](https://bristolctf.club)
 
-## 📚 What's Here
 
-This repository contains resources for learning and competing in CTF challenges across categories:
+# Beginner's Guide to Contributing
 
-- **Cryptography** - Encryption, steganography, and cipher techniques
-- **Password Cracking** - Using Hashcat, John the Ripper, and cracking strategies
-- **Web App Exploitation** - SQL injection, XSS, and web vulnerabilities
-- **Reverse Engineering** - GDB, Ghidra, and binary analysis
-- **OSINT** - Open source intelligence gathering
-- **Tools** - Nmap, Burp Suite, CyberChef, and more
+Thank you for your interest in contributing! This guide will help you get started.
 
-## 🤝 Contributing
+## Content Contribution Guide
 
-We welcome contributions! There are two ways to contribute:
+First, you'll need to have git installed on your machine.
+You will also need [Obsidian](https://obsidian.md/) unless you want to edit in markdown files directly.
 
-### 1. Add or Edit Content (Easy)
+### Step 1: Fork the Repository
 
-Content lives in the `content/` folder as Markdown files. This is an **Obsidian vault**, so you can:
+1. Go to the repository on GitHub
+2. Click the **"Fork"** button in the top-right corner
+3. This creates a copy of the repo under your GitHub account
 
-1. Fork this repository
-2. Clone it locally
-3. Open the `content/` folder in [Obsidian](https://obsidian.md/) (or any text editor)
-4. Add or edit `.md` files
-5. Submit a pull request
+### Step 2: Clone Your Fork
 
-**Content Guidelines:**
-- Use standard Markdown syntax
-- Place files in appropriate category folders
-- Use descriptive filenames (e.g., `SQL-Injection-Basics.md`)
-- Include frontmatter with at least a `title` field
-- Obsidian features like `[[wikilinks]]` and callouts are supported
+From your fork, click the green "Code" button and copy the url.
 
-Example file structure:
-```markdown
----
-title: My New Guide
----
+Make sure you have git installed on your machine.
 
-# My New Guide
-
-Content goes here...
+In your terminal, clone your forked repository:
+```bash
+git clone <paste link here>
+#git clone https://github.com/YOUR-USERNAME/bristol-ctf-resources.git
 ```
+this will download the entire repository to a new directory, bristol-ctf-resources.
 
-### 2. Modify Site Styling/Functionality (Advanced)
-
-For styling, layout, or plugin changes:
-
-| What to Change | Where |
-|----------------|-------|
-| Site title, colors, fonts | `quartz.config.ts` |
-| Page layout structure | `quartz.layout.ts` |
-| Custom components | `quartz/components/` |
-| Styling (CSS/SCSS) | `quartz/styles/` |
-| Plugins | `quartz/plugins/` |
-
-See the [Quartz documentation](https://quartz.jzhao.xyz/) for detailed customization guides.
-
-## 🛠️ Local Development
-
-### Prerequisites
-
-- Node.js >= 22
-- npm >= 10.9.2
-
-### Setup
+### Step 3: Create a Branch for Your Edits
 
 ```bash
-# Clone the repository
-git clone https://github.com/YOUR-USERNAME/bristol-ctf-resources.git
-cd bristol-ctf-resources
+git checkout -b myEdits
+```
 
-# Install dependencies
-npm ci
+### Step 4: Open in Obsidian
 
-# Start local dev server
+1. Install [Obsidian](https://obsidian.md/) if you haven't already
+2. Open Obsidian and select **"Open folder as vault"**
+3. Navigate to your cloned repo and select the `content/` folder
+4. Edit and create new notes or folders in Obsidian
+
+
+### What Makes a Good Contribution?
+
+Good contributions include new notes, tips, tricks, resources, guides, tutorials, etc.
+
+In an effort to avoid an overwhelming amount of information, the goal is to initially keep it to the basic foundations of how to do things.
+
+If you want to go into greater detail, please make a separate note in the appropriate folder.
+
+Once you've made your edits, see [Submitting Your Contribution](#submitting-your-contribution) below.
+
+
+## Submitting Your Contribution
+
+Once you've made your changes locally, follow these steps to submit them:
+
+### Step 1: Save and Commit Your Changes
+
+```bash
+# Stage all your changes
+git add .
+
+# Commit with a descriptive message
+git commit -m "Add guide for SQL injection basics"
+```
+
+### Step 2: Push to Your Fork
+
+```bash
+git push origin myEdits
+```
+
+This uploads your changes to **your fork** on GitHub (not the original repository).
+
+### Step 3: Open a Pull Request
+
+1. Go to **your fork** on GitHub (github.com/YOUR-USERNAME/bristol-ctf-resources)
+2. You'll see a banner saying "myEdits had recent pushes" with a **"Compare & pull request"** button — click it
+3. If you don't see the banner, click the **"Contribute"** dropdown and select **"Open pull request"**
+4. Fill out the pull request form:
+   - **Title**: Brief description (e.g., "Add SQL injection basics guide")
+   - **Description**: Explain what you added or changed
+5. Click **"Create pull request"**
+
+### Step 4: Wait for Review
+
+A maintainer will review your PR. They may:
+- **Approve and merge it** — your changes go live!
+- **Request changes** — make the requested edits, commit, and push again (the PR updates automatically)
+- **Ask questions** — respond in the PR comments
+
+
+## Styling and UI Contributions
+
+To work on or experiment with improvements to the site's UI and styling, you will need to install dependencies and run the quartz server locally:
+
+### Setting Up Your Development Environment
+
+#### Prerequisites: Install Node.js
+
+Node.js is required to run the development server. Download and install it from [nodejs.org](https://nodejs.org/) (use the LTS version).
+
+Verify installation:
+```bash
+node --version  # Should show v22 or higher
+npm --version   # Should show v10 or higher
+```
+
+#### 1. Fork and Clone (same as Content Contributions above)
+
+Follow Steps 1-3 from the Content Contribution Guide to fork, clone, and create a branch.
+
+#### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+#### 3. Start the Dev Server
+
+```bash
 npx quartz build --serve
 ```
 
-The site will be available at `http://localhost:8080`
+Visit `http://localhost:8080` to preview your changes. The server auto-reloads when you save files.
 
-### Using Docker
 
-```bash
-docker build -t quartz .
-docker run -p 8080:8080 quartz
+### How Quartz Styling Works
+
+Quartz uses a combination of configuration files, layout definitions, and SCSS for styling. Here's a breakdown:
+
+#### Key Files Overview
+
+| File | Purpose |
+|------|---------|
+| `quartz.config.ts` | Site settings: title, colors, fonts, plugins |
+| `quartz.layout.ts` | Page structure: which components appear where |
+| `quartz/styles/custom.scss` | Your custom CSS overrides |
+| `quartz/components/` | React components (search, explorer, etc.) |
+
+#### 1. Theme Colors (`quartz.config.ts`)
+
+The `theme.colors` section defines color variables for light and dark modes:
+
+```typescript
+colors: {
+  darkMode: {
+    light: "#161618",      // Page background
+    lightgray: "#393639",  // Borders, dividers
+    gray: "#646464",       // Subtle text, icons
+    darkgray: "#d4d4d4",   // Body text
+    dark: "#ebebec",       // Headings, bold text
+    secondary: "#7b97aa",  // Links, accents
+    tertiary: "#84a59d",   // Hover states
+    highlight: "rgba(...)",// Selection highlight
+  },
+}
 ```
 
-## 📁 Repository Structure
+These colors are available as CSS variables: `--light`, `--dark`, `--secondary`, etc.
 
-```
-├── content/              # 📝 Obsidian vault (contribute content here!)
-│   ├── index.md
-│   ├── Cryptography/
-│   ├── Password Cracking/
-│   ├── Web App Exploitation/
-│   └── ...
-├── quartz/               # ⚙️ Quartz framework
-│   ├── components/       # React components
-│   ├── plugins/          # Build plugins
-│   └── styles/           # SCSS styles
-├── public/               # 🌐 Built site output (auto-generated)
-├── docs/                 # 📖 Quartz documentation
-├── quartz.config.ts      # Site configuration
-├── quartz.layout.ts      # Layout configuration
-└── package.json
+#### 2. Typography (`quartz.config.ts`)
+
+Change fonts in the `theme.typography` section:
+
+```typescript
+typography: {
+  header: "Schibsted Grotesk",  // Headings
+  body: "Source Sans Pro",       // Body text
+  code: "IBM Plex Mono",         // Code blocks
+},
 ```
 
-## 🚀 Deployment
+#### 3. Page Layout (`quartz.layout.ts`)
 
-The site automatically deploys when changes are merged to the `main` branch.
+This file controls which components appear on each page:
 
-**For maintainers:** Manual deployment can be done via:
-```bash
-./deploy.sh
+```typescript
+export const defaultContentPageLayout: PageLayout = {
+  beforeBody: [              // Above the main content
+    Component.Breadcrumbs(),
+    Component.ArticleTitle(),
+  ],
+  left: [                    // Left sidebar
+    Component.PageTitle(),
+    Component.Search(),
+    Component.Explorer(),
+  ],
+  right: [                   // Right sidebar
+    Component.TableOfContents(),
+    Component.Backlinks(),
+  ],
+}
 ```
 
-## 📜 License
+To remove a component, delete or comment out its line. To add one, import it from `Component.*`.
 
-Content is open for educational use. See [LICENSE.txt](LICENSE.txt) for details.
+#### 4. Custom CSS (`quartz/styles/custom.scss`)
 
-Quartz framework is MIT licensed by [jackyzha0](https://github.com/jackyzha0/quartz).
+For fine-grained control, add custom SCSS here. Example:
+
+```scss
+// Change explorer sidebar background
+body .sidebar.left:has(.explorer) {
+  background-color: #0d2e4d;
+}
+
+// Style folder titles
+a.folder-title {
+  color: #adbd96 !important;
+}
+```
+
+**Tip:** Use browser DevTools to inspect elements and find the right selectors.
+
+#### 5. Component Styling (`quartz/components/styles/`)
+
+Each component has its own `.scss` file. For example, to modify the search bar, edit `quartz/components/styles/search.scss`.
+
+#### Resources
+
+- [Quartz Configuration Docs](https://quartz.jzhao.xyz/configuration)
+- [Quartz Layout Docs](https://quartz.jzhao.xyz/layout)
+- [Creating Custom Components](https://quartz.jzhao.xyz/advanced/creating-components)
+
+
+
+### Tips for First-Time Contributors
+
+- Don't worry about making mistakes — that's what review is for!
+- If you get stuck, open an issue and ask for help
+- You can make multiple commits to the same branch; they'll all be included in your PR
+
 
 ---
 
-**Questions?** Open an issue or reach out to the Bristol CTF Club team.
+## Questions?
+
+- Open an issue for questions or suggestions
+- Check existing issues before creating new ones
+
+Thank you for contributing! 🎉
+
